@@ -1,0 +1,213 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Styles the entire webpage */
+body {
+    background-color: beige;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+   
+    min-height: 100vh;
+    padding: 24px 0;
+    margin: 0;
+}
+
+
+/* MAIN GAME CONTAINER */
+
+.widget {
+    background: white;
+    /* White card around the whole game. */
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+    text-align: center;
+    width: min(410px, calc(100vw - 24px));
+}
+
+.title-bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 34px;
+}
+
+.title-art,
+.window-control {
+    background-image: url("images/assets/Group2.png");
+    background-repeat: no-repeat;
+}
+
+/* Tic Tac Toe title from the image. */
+.title-art {
+    width: 125px;
+    height: 28px;
+    background-position: -8px -15px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.window-control {
+    width: 32px;
+    height: 28px;
+}
+
+.minimize {
+    background-position: -273px -15px;
+}
+
+.close {
+    width: 29px;
+    background-position: -319px -15px;
+}
+
+
+/*Multiplayer & AI*/
+#mode-selection {
+    display: flex;
+    justify-content: center;
+
+    /* Space between the two buttons */
+    gap: 12px;
+
+    margin-top: 12px;
+    margin-bottom: 18px;
+}
+
+/* Removes the browser's default button appearance */
+#mode-selection button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    /* Same size keeps the two buttons even. */
+    width: 180px;
+    height: 36px;
+}
+
+#ai-mode img,
+#multiplayer img {
+    width: 180px;
+    height: 36px;
+    display: block;
+}
+
+
+/* TIC TAC TOE BOARD*/
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+
+    /* This is the size of the whole board. */
+    width: min(370px, 100%);
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    background: url("images/assets/outside.png") center / cover;
+    border: 4px solid white;
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    margin: 16px auto 8px;
+}
+
+/* Draw white grid lines over one continuous background picture. */
+#board::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        linear-gradient(to right,
+            transparent 32.6%, white 32.6% 34%,
+            transparent 34% 66%, white 66% 67.4%,
+            transparent 67.4%),
+        linear-gradient(to bottom,
+            transparent 32.6%, white 32.6% 34%,
+            transparent 34% 66%, white 66% 67.4%,
+            transparent 67.4%);
+}
+
+
+/* Individual cell*/
+
+.cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: rgba(183, 224, 255, .26);
+    border-radius: 0;
+    position: relative;
+    z-index: 0;
+
+    /* Centers the heart image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+
+/* Heart images*/
+
+.heart {
+
+    /* Size of the heart images */
+    width: 55px;
+    height: 55px;
+
+    /* Prevents clicking the image instead of the cell */
+    pointer-events: none;
+}
+
+
+/* Restart button*/
+
+#restart {
+    margin-top: 0;
+    border: none;
+    background: none;
+
+    padding: 0;
+
+    cursor: pointer;
+}
+
+/* Resize the restart image */
+#restart img {
+    display: block;
+    width: 270px;
+}
+
+
+/* Hover & active effects */
+
+/* Cell lights up slightly when hovered */
+.cell:hover {
+    background-color: rgba(225, 245, 255, .45);
+}
+
+/* Cell shrinks slightly when clicked */
+.cell:active {
+    transform: scale(.9);
+}
+
+
+/*Winning cells*/
+.winner {
+    background-color: #d4ffd4;
+}

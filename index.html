@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="widget">
+
+    <!-- Title and window icons from my Figma design. -->
+    <div class="title-bar" aria-label="Tic Tac Toe">
+        <div class="title-art" aria-hidden="true"></div>
+        <div class="window-controls" aria-hidden="true">
+            <div class="window-control minimize"></div>
+            <div class="window-control close"></div>
+        </div>
+    </div>
+
+    <!-- Choose whether a person or the computer plays second. -->
+    <div id="mode-selection">
+
+        <button id="ai-mode">
+            <img src="images/assets/1.png" alt="Player versus AI">
+        </button>
+
+        <button id="multiplayer">
+            <img src="images/assets/multiplayer.png" alt="Multiplayer">
+        </button>
+
+    </div>
+
+    <div id="board">
+
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+
+    </div>
+
+    <!-- Clears the board and starts a new game. -->
+    <button id="restart">
+        <img src="images/assets/restart.png" alt="Restart game">
+    </button>
+
+</div>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
